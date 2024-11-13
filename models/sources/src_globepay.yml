@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: globepay
+    database: GLOBEPAY
+    schema: REPORTS_RAW
+    description: Globepay reports
+    tables:
+      - name: ACCEPTANCE
+        columns:
+          - name: external_ref
+            description: ""
+          - name: status
+            description: ""
+          - name: source
+            description: ""
+          - name: ref
+            description: ""
+          - name: date_time
+            description: ""
+          - name: state
+            description: ""
+          - name: cvv_provided
+            description: ""
+          - name: amount
+            description: ""
+          - name: country
+            description: ""
+          - name: currency
+            description: ""
+          - name: rates
+            description: ""
+      - name: CHARGEBACK
+        columns:
+          - name: external_ref
+            description: ""
+          - name: status
+            description: ""
+          - name: source
+            description: ""
+          - name: chargeback
+            description: ""

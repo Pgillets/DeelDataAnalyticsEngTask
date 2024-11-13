@@ -1,0 +1,49 @@
+version: 2
+
+models:
+    - name: stg_globepay_report_acceptance
+      columns:
+        - name: external_ref
+          description: ""
+          tests:
+            - unique
+            - not_null
+        - name: status
+          description: ""
+        - name: source
+          description: ""
+        - name: ref
+          description: ""
+          tests:
+            - unique
+            - not_null
+        - name: date_time
+          description: ""
+        - name: state
+          description: ""
+        - name: cvv_provided
+          description: ""
+        - name: amount
+          description: ""
+        - name: country
+          description: ""
+        - name: currency
+          description: ""
+        - name: rates
+          description: ""
+
+    - name: stg_globepay_report_chargeback
+      columns:
+        - name: external_ref
+          description: ""
+          tests:
+            - unique
+            - not_null
+        - name: status
+          description: ""
+        - name: source              
+          description: ""
+        - name: chargeback
+          description: ""
+          tests:
+            - not_null

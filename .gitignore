@@ -1,3 +1,15 @@
+# DBT generated files
+.dbt/.user.yml
+dbt_packages/
+package-lock.yml
+
+# Python virtual env
+dbt-snowflake-env/
+
+# Snowflake authentication information
+rsa_key.p8
+rsa_key.pub
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
