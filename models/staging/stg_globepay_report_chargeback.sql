@@ -6,10 +6,10 @@
 WITH
 source_data AS (
     SELECT
-        external_ref,
-        status,
-        source,
-        chargeback
+        external_ref::VARCHAR AS external_ref,
+        status::BOOLEAN AS status,
+        source::VARCHAR AS source,
+        chargeback::BOOLEAN AS chargeback
     FROM
         {{ source('globepay', 'CHARGEBACK') }}
 )

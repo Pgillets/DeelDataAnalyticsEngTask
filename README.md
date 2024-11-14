@@ -71,9 +71,15 @@ ROOT
 7. As a good practice, a **tag** called `globepay` was included in every model created for this context. This enable us to select models by tag when running DBT commands.  
 8. Inside the `analysis/` folder three SQL files were created, each one answering one of the questions from the Data Analyst. SQL files inside the `analysis/` path do not work like DBT models, they are not executed by DBT commands, they work more like saved queries. Those SQL files can be run as queries on DBT or they can be compiled and shared to be executed on BI tools.  
 
+## DBT build results
+![dbt build results](dbt_build_result.png)
 
 ## Resulting DBT lineage
 ![dbt lineage](dbt_lineage.png)
 
 ## Resulting Snowflake database schemas
 ![snowflake schemas](snowflake_schema.png)
+
+## Final considerations
+1. In a real world scenario, with new data files recurrently being added to a Snowflake Stage, it could be beneficial to include `incremental strategy` logic to the models.  
+2. Also evaluating if the models could benefit from `clustering`.  

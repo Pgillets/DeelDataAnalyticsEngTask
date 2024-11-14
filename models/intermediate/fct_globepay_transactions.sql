@@ -33,25 +33,26 @@ chargeback_report AS (
 
 transactions AS (
     SELECT
-        acceptance_report.external_ref,
-        acceptance_report.status,
-        acceptance_report.source,
-        acceptance_report.ref,
-        acceptance_report.date_time,
-        acceptance_report.state,
-        chargeback_report.chargeback,
-        acceptance_report.cvv_provided,
-        acceptance_report.amount,
-        acceptance_report.country,
-        acceptance_report.currency,
-        parse_json(acceptance_report.rates)[acceptance_report.currency]
+        acc.external_ref,
+        acc.status,
+        acc.source,
+        acc.ref,
+        acc.date_time,
+        acc.state,
+        cha.chargeback,
+        acc.cvv_provided,
+        acc.amount,
+        acc.country,
+        acc.currency,
+        parse_json(acc.rates)[acc.currency]::FLOAT
             AS currency_rate_used,
-        round(acceptance_report.amount / currency_rate_used, 2) AS amount_in_usd
+        round(acc.amount / currency_rate_used, 2)::NUMBER(38, 2)
+            AS amount_in_usd
     FROM
-        acceptance_report
+        acceptance_report AS acc
     LEFT JOIN
-        chargeback_report
-        ON acceptance_report.external_ref = chargeback_report.external_ref
+        chargeback_report AS cha
+        ON acc.external_ref = cha.external_ref
 )
 
 SELECT * FROM transactions
