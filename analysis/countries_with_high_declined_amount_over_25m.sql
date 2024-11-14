@@ -4,7 +4,7 @@ transactions AS (
         ref,
         state,
         country,
-        amount,
+        amount_in_usd,
         date_time
     FROM {{ ref('fct_globepay_transactions') }}
     WHERE upper(state) = 'DECLINED'
@@ -13,7 +13,7 @@ transactions AS (
 countries_declined_amount AS (
     SELECT
         country,
-        sum(amount) AS declined_amount
+        sum(amount_in_usd) AS declined_amount
     FROM transactions
     GROUP BY country
 ),

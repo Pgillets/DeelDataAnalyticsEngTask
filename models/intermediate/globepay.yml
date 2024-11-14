@@ -1,0 +1,20 @@
+models:
+    - name: fct_globepay_transactions
+      columns:
+        - name: external_ref
+        - name: status
+        - name: source
+        - name: ref
+        - name: date_time
+        - name: state
+        - name: chargeback
+          data_tests:
+            - not_null:
+                config:
+                  severity: warn
+        - name: cvv_provided
+        - name: amount
+        - name: country
+        - name: currency
+        - name: currency_rate_used
+        - name: amount_in_usd

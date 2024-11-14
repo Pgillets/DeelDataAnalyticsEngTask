@@ -9,34 +9,34 @@ sources:
       - name: ACCEPTANCE
         columns:
           - name: external_ref
-            description: ""
+            description: "External key to relate to data from other reports from Globepay"
           - name: status
             description: ""
           - name: source
-            description: ""
+            description: "Source of the transaction"
           - name: ref
-            description: ""
+            description: "Unique reference of the transaction"
           - name: date_time
-            description: ""
+            description: "Date and time of the transaction"
           - name: state
-            description: ""
+            description: "If the transaction was ACCEPTED or DECLINED"
           - name: cvv_provided
             description: ""
           - name: amount
-            description: ""
+            description: "Transaction amount in local currency"
           - name: country
-            description: ""
+            description: "Country of the transaction"
           - name: currency
-            description: ""
+            description: "Currency of the transaction"
           - name: rates
-            description: ""
+            description: "Rates used to convert the transaction amount to the currency of the account"
       - name: CHARGEBACK
         columns:
           - name: external_ref
-            description: ""
+            description: "External key to relate to data from other reports from Globepay"
           - name: status
             description: ""
           - name: source
-            description: ""
+            description: "Source of the transaction"
           - name: chargeback
-            description: ""
+            description: "If the transaction was charged back"

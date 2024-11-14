@@ -4,10 +4,10 @@ config-version: 2
 
 profile: 'snowflake_db'
 
-source-paths: ["models"]
+model-paths: ["models"]
 analysis-paths: ["analysis"]
 test-paths: ["tests"]
-data-paths: ["data"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
@@ -16,14 +16,10 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
-
-seeds:
-    +quote_columns: false
-
-
 models:
     snowflake_dbt_project:
         +materialized: table
         marts:
-            schema: marts
+            finance:
+                schema: finance
      

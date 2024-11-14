@@ -44,7 +44,9 @@ transactions AS (
         acceptance_report.amount,
         acceptance_report.country,
         acceptance_report.currency,
-        acceptance_report.rates
+        parse_json(acceptance_report.rates)[acceptance_report.currency]
+            AS currency_rate_used,
+        round(acceptance_report.amount / currency_rate_used, 2) AS amount_in_usd
     FROM
         acceptance_report
     LEFT JOIN
